@@ -102,7 +102,6 @@ class FinancialAnalytics {
 const analytics = new FinancialAnalytics();
 
 analytics.init("data.json", FinancialAnalytics.compareMonthlyExpenses);
-
+// console.log(analytics.readJSONData());
 // console.log(data.readJSONData());
 // console.log(FinancialAnalytics.calculateMonthlySavings());
-// console.log(analytics.readJSONData());

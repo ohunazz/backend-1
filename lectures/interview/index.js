@@ -172,3 +172,114 @@ console.log(isHtmlValid(["</div>", "<>"]));
 console.log(isHtmlValid(["<div>", "</div>"]));
 console.log(isHtmlValid(["<div>", "</div>", "<div>"]));
 console.log(isHtmlValid(["<div>", "</p>"]));
+
+//  Write a function that removes duplicates from an array AND RETURN UNIQUE ARRAY
+// [1,2,3,1,2,5,5] [1,2,3,5]
+// 1. Create an empty array, unique
+// 2. Loop the argument array
+//3. Check if unique has current element of argument array, if it has already, do not push, if it does NOT have it, then push
+// return unique array
+function removeDuplicates(arr) {
+    let unique = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let number = arr[i];
+        if (!unique.includes(number)) {
+            unique.push(number);
+        }
+    }
+    return unique;
+}
+console.log(removeDuplicates([1, 2, 3, 1, 2, 5, 5]));
+
+// Implement the FizzBuzz algorithm: for numbers from 1 to n, print 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, and 'FizzBuzz' for multiples of both.
+
+const fizzBuzz = (numbers) => {
+    for (let i = 0; i < numbers; i++) {
+        if (i % 15 === 0) {
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        }
+    }
+};
+
+fizzBuzz(15);
+
+// Create a function that checks if a given string is a palindrome (the same forwards and backwards).
+
+// Input: hello = Output: false
+// Input: rotetor = Output: true
+
+const isPalindrome = (str) => {
+    for (let i = 0; i < str.length / 2; i++) {
+        if (str[i] !== str[str.length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+};
+
+console.log(isPalindrome("hello"));
+console.log(isPalindrome("rotetor"));
+
+// Develop a function that determines if two strings are anagrams of each other. Return true if anagrams, else false.
+
+// e.g ("secure", "rescue")
+
+// secure   =>  rescue
+
+//HELLO, ELLOH\
+// APPLE, LEAPP
+// PULLS, PULLR
+
+const isAnagram = (str1, str2) => {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    str1Count = {};
+    str2Count = {};
+
+    for (const char of str1) {
+        if (str1Count[char]) {
+            str1Count[char]++;
+        } else {
+            str1Count[char] = 1;
+        }
+    }
+
+    for (const char of str2) {
+        if (str2Count[char]) {
+            str2Count[char]++;
+        } else {
+            str2Count[char] = 1;
+        }
+    }
+
+    for (const char in str1Count) {
+        if (str1Count[char] !== str2Count[char]) {
+            return false;
+        }
+    }
+    return true;
+};
+
+console.log(isAnagram("secure", "rescue"));
+
+// Write a function that converts an array of strings into an array of objects with a property 'value' that contains the original string.
+
+// [a, b, c], => [{value: a}, {value: b}, {value:c}];
+
+const convertToObjArr = (strings) => {
+    const arr = [];
+
+    for (const str of strings) {
+        arr.push({ value: str });
+
+        return arr;
+    }
+};
+console.log(convertToObjArr(["a", "b", "c"]));

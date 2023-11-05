@@ -283,3 +283,47 @@ const convertToObjArr = (strings) => {
     }
 };
 console.log(convertToObjArr(["a", "b", "c"]));
+
+// Create a function that takes two sorted array (asc) with the same length. Merge them in one array and return it. Catch is here: returning array should be sorted as well. do not use sort() method.
+// [1, 4, 6, 10, 100], [3, 4, 10, 12, 101]
+// [1, 3, 4, 4, 6, 10, 10, 12, 100, 101 ]
+
+// [1, 4, 6, 10, 100], [3, 4, 11, 12, 101]
+// [1, 3, 4, 4, 6, 10, 11, 12, 100, 101 ]
+
+const sortedArray = (arr1, arr2) => {
+    const sortArr = [];
+    let i = 0;
+    let j = 0;
+    while (i < arr1.length) {
+        if (arr1[i] < arr2[j]) {
+            sortArr.push(arr1[i]);
+            i++;
+        } else {
+            {
+                sortArr.push(arr2[j]);
+                j++;
+            }
+        }
+    }
+    return sortArr;
+};
+
+console.log(sortedArray([1, 4, 6, 10, 100], [3, 4, 10, 12, 101]));
+
+// Given a number. Sum up the digits
+// 1234 => 10
+// 4589 => 26
+// 8978 => 32.
+// COndition : Do not convert number to string and loop.
+
+function sumOfDigits(num) {
+    let sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+    }
+    return sum;
+}
+
+console.log(sumOfDigits(1234)); // Output 10;
